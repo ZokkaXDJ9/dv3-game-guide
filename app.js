@@ -5,7 +5,7 @@ const articles=groups.flatMap(g=>g.items.map(a=>({...a,category:g.category})));
 const navEl=document.querySelector('#side-nav'),view=document.querySelector('#view'),search=document.querySelector('#global-search'),sidebar=document.querySelector('#sidebar');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
-const statNames=[['HP','HP'],['ATK','ATK'],['DEF','DEF'],['MAG','MAG'],['MR','RES'],['SPD','SPD']];
+const statNames=[['HP','HP'],['ATK','ATK'],['DEF','DEF'],['MAG','MAG'],['RES','RES'],['SPD','SPD']];
 const moveOf=(d,kind)=>kind==='base'?d.baseMove:d.ultimateMove;
 function formatDuration(seconds){if(seconds==null||seconds==='')return '—';const s=Number(seconds);if(!Number.isFinite(s))return String(seconds);const days=Math.floor(s/86400),hours=Math.floor((s%86400)/3600),minutes=Math.floor((s%3600)/60);return [days?`${days}d`:null,hours?`${hours}h`:null,minutes?`${minutes}m`:null].filter(Boolean).join(' ')||'<1m'}
 function englishText(value,fallback=''){return /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/.test(String(value||''))?fallback:(value||fallback)}
