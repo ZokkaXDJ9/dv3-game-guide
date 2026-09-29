@@ -14,7 +14,8 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 - `data/combat-data.js` contains the 1.0.18 elemental matchup chart, stage enemy element mappings, and translated Raid boss hints and phase rules. Stage detail pages use this to suggest Dragons and moves with favorable elemental matchups. Raid topic pages include specific boss fight plans for the three bosses in this snapshot.
 - `guide-data.js`, `guide-extra.js`, `guide-more.js`, and `guide-reference.js` contain the question-led system/reference articles.
 - `strategy-data.js` contains beginner routes and practical guides for draws, Raids, stages, collection, and farming.
-- `question-bank.js` contains the consolidated FAQ backlog organized into 16 topics. The Guide sidebar's **Question Workbook** lets you draft an answer for each question, autosaves drafts in the current browser, and downloads either the blank workbook or answered notes as Markdown.
+- `content/faq-answer-workbook.md` is the editable source for the consolidated questions, imported answer drafts, and TBD prompts. `tools/build-question-bank.py` converts it to the browser data in `question-bank.js` (currently 81 questions across 16 topics, including 15 supplied answer drafts).
+- The Guide sidebar's **Question Workbook** lets you edit answers in the browser, autosaves local drafts, and downloads the full workbook or answered notes as Markdown.
 - `tools/build-stage-data.py` regenerates the stage index when given the decoded 1.0.18 table directory and local English translation file with `--tables` and `--lang`. These local inputs are not included in the published site.
 - `tools/build-combat-data.py` regenerates combat and Raid reference data with `--tables` and `--lang`. These local inputs are not included in the published site.
 - `tools/translate-ability-descriptions.py` fills English ability descriptions in the static catalog using the local 1.0.18 tables and research translation files.
@@ -30,7 +31,7 @@ All data scripts are loaded before `app.js` in `index.html`. Use `/` to focus gl
 
 ## Answer the FAQ backlog
 
-Open **Guide → Question Workbook**, search or expand a topic, and type into a question's answer box. Drafts are saved only in that browser's local storage; they do not appear on the public site automatically. Use **Download my answers** to share a Markdown file for review or publishing. Use **Download blank workbook** to answer offline. A publishable answer should start with a direct response, give the steps or recommendation, state limits and the game version, and link a source or record a test. Questions in **Current Info & Rotating Events** need a checked date and regular updates.
+Open **Guide → Question Workbook**, search or expand a topic, and type into a question's answer box. Drafts are saved only in that browser's local storage; they do not appear on the public site automatically. Use **Download answered notes** to share a Markdown file for review. To publish updated answers, merge them into `content/faq-answer-workbook.md`, run `python tools/build-question-bank.py`, then commit and push. Use **Download full workbook** to answer offline. A publishable answer should start with a direct response, give the steps or recommendation, state limits and the game version, and link a source or record a test. Questions in **Current / Frequently Changing Information** need a checked date and regular updates.
 
 ## Publish
 
