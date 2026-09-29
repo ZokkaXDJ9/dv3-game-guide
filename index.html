@@ -6,7 +6,7 @@
   <meta name="description" content="A searchable Dragon Village 3 field guide with Dragon and Orb catalogs, stage references, and player walkthroughs.">
   <meta name="theme-color" content="#f4f3ed">
   <title>Dragon Village 3 Field Guide</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=split-nav-20260929">
   <script src="data/catalog-data.js?v=f2003b4" defer></script>
   <script src="data/stage-data.js" defer></script>
   <script src="guide-data.js" defer></script>
@@ -14,17 +14,17 @@
   <script src="guide-more.js" defer></script>
   <script src="guide-reference.js" defer></script>
   <script src="strategy-data.js" defer></script>
-  <script src="app.js?v=a75a594" defer></script>
+  <script src="app.js?v=split-nav-20260929" defer></script>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#home"><span class="brand-mark">DV3</span><span>FIELD GUIDE<small>DRAGON VILLAGE 3</small></span></a>
-    <nav class="top-nav" aria-label="Main navigation"><a href="#dragons">Dragons</a><a href="#orbs">Orbs</a><a href="#stages">Stages</a><a href="#guides">Player Handbook</a></nav>
+    <nav class="top-nav" aria-label="Main navigation"><a href="#data">Data</a><a href="#guide">Guide</a></nav>
     <label class="global-search"><span aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Find a Dragon, Orb, stage, or answer…" aria-label="Search field guide"><kbd>/</kbd></label>
     <button class="mobile-menu" id="mobile-menu" aria-label="Open field guide menu" aria-expanded="false">☰</button>
   </header>
   <div class="app-layout">
-    <aside class="sidebar" id="sidebar"><div class="sidebar-label">FIELD INDEX</div><nav id="side-nav" aria-label="Field guide index"></nav><div class="sidebar-note"><span>REFERENCE DATA</span><b>Game tables 1.0.18</b><small>Guide notes identify live or version-specific details.</small></div></aside>
+    <aside class="sidebar" id="sidebar"><div class="sidebar-label">FIELD INDEX</div><nav id="side-nav" aria-label="Field guide index"></nav><div class="sidebar-note" id="sidebar-note"><span>REFERENCE DATA</span><b>Game tables 1.0.18</b><small>Choose Data or Guide to begin.</small></div></aside>
     <main class="main"><div id="view" aria-live="polite"></div></main>
   </div>
   <footer class="site-footer"><span>Independent player field guide</span><span>Game data reference: DV3 1.0.18</span><a href="https://community.withhive.com/dv3/en" target="_blank" rel="noreferrer">Official notices ↗</a><a href="https://github.com/ZokkaXDJ9/dv3-game-guide">Source &amp; contribution notes ↗</a></footer>

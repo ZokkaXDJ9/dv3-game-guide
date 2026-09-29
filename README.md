@@ -8,6 +8,7 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 
 ## Site contents
 
+- Navigation is split into **Data** (Dragon, Orb, and Stage indexes) and **Guide** (topic groups such as First Steps, Stages, Raids, Growth & Breeding, and Events & Multiplayer). Add new guide entries to the closest topic group in `strategy-data.js` or the relevant article file.
 - `data/catalog-data.js` contains a static reference catalog of 113 Dragons and 64 Orbs, generated from the supplied 1.0.18 game tables. English names are reconciled with the local English research corpus.
 - `data/stage-data.js` contains 96 Expedition stages and 72 grouped Dungeon stages, including enemy references, levels, Fatigue, and recommended power where supplied by the game tables.
 - `guide-data.js`, `guide-extra.js`, `guide-more.js`, and `guide-reference.js` contain the question-led system/reference articles.
