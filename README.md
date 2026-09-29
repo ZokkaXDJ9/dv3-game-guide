@@ -14,6 +14,7 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 - `data/combat-data.js` contains the 1.0.18 elemental matchup chart, stage enemy element mappings, and translated Raid boss hints and phase rules. Stage detail pages use this to suggest Dragons and moves with favorable elemental matchups. Raid topic pages include specific boss fight plans for the three bosses in this snapshot.
 - `guide-data.js`, `guide-extra.js`, `guide-more.js`, and `guide-reference.js` contain the question-led system/reference articles.
 - `strategy-data.js` contains beginner routes and practical guides for draws, Raids, stages, collection, and farming.
+- `question-bank.js` contains the consolidated FAQ backlog organized into 16 topics. The Guide sidebar's **Question Workbook** lets you draft an answer for each question, autosaves drafts in the current browser, and downloads either the blank workbook or answered notes as Markdown.
 - `tools/build-stage-data.py` regenerates the stage index when given the decoded 1.0.18 table directory and local English translation file with `--tables` and `--lang`. These local inputs are not included in the published site.
 - `tools/build-combat-data.py` regenerates combat and Raid reference data with `--tables` and `--lang`. These local inputs are not included in the published site.
 - `tools/translate-ability-descriptions.py` fills English ability descriptions in the static catalog using the local 1.0.18 tables and research translation files.
@@ -26,6 +27,10 @@ Catalogs and matchup recommendations describe the 1.0.18 data snapshot. Stage co
 Add an article to an existing category in a guide data file, or add a category with `{category: "Category name", items: [...]}`. Each article has an `id`, `title`, `summary`, searchable `tags`, `updated`, and `sections`. Sections have a `title` and an `html` string. Add a linked `source` for claims that depend on a version, notice, or community reference.
 
 All data scripts are loaded before `app.js` in `index.html`. Use `/` to focus global search. The global search covers Dragon and Orb fields, stage entries, and guide text.
+
+## Answer the FAQ backlog
+
+Open **Guide → Question Workbook**, search or expand a topic, and type into a question's answer box. Drafts are saved only in that browser's local storage; they do not appear on the public site automatically. Use **Download my answers** to share a Markdown file for review or publishing. Use **Download blank workbook** to answer offline. A publishable answer should start with a direct response, give the steps or recommendation, state limits and the game version, and link a source or record a test. Questions in **Current Info & Rotating Events** need a checked date and regular updates.
 
 ## Publish
 
