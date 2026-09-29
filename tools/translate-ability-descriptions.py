@@ -27,7 +27,12 @@ ability_by_id = {a["id"]: a for a in rows("table_ability")}
 dragon_ability = {d["id"]: d.get("ability", "") for d in rows("table_dragon")}
 catalog_path = ROOT / "data" / "catalog-data.js"
 text = catalog_path.read_text(encoding="utf-8")
-prefix, payload = text.split("=", 1)
+prefix = "window.GAME_CATALOG"
+if not text.startswith(prefix):
+    raise ValueError("catalog-data.js does not start with window.GAME_CATALOG")
+payload = text[len(prefix):].strip()
+if payload.startswith("="):
+    payload = payload[1:].strip()
 catalog = json.loads(payload.strip().rstrip(";"))
 resolved = 0
 for dragon in catalog["dragons"]:
@@ -37,9 +42,9 @@ for dragon in catalog["dragons"]:
     description = translations.get(ability.get("t_desc", ""))
     if not description:
         continue
-    description = re.sub(r"\{@#;[^;]+;([^}]+)\}", lambda m: {"hp": "HP", "atk": "Attack", "def": "Defense", "mag": "Magic", "mr": "Resistance", "spd": "Speed"}.get(m.group(1), m.group(1).replace("_", " ").title()), description)
+    description = re.sub(r"\{@#;[^}]+\}", "", description)
     description = description.replace("{@}", "")
     dragon["ability"]["description"] = description
     resolved += 1
-catalog_path.write_text(prefix + " " + json.dumps(catalog, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+catalog_path.write_text(prefix + " = " + json.dumps(catalog, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
 print(f"Added English ability descriptions for {resolved} Dragons")
