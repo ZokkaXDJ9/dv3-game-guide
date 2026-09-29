@@ -11,13 +11,15 @@ Open `index.html` in a browser, or serve this folder with any static web server.
 - Navigation is split into **Data** (Dragon, Orb, and Stage indexes) and **Guide** (topic groups such as First Steps, Stages, Raids, Growth & Breeding, and Events & Multiplayer). Add new guide entries to the closest topic group in `strategy-data.js` or the relevant article file.
 - `data/catalog-data.js` contains a static reference catalog of 113 Dragons and 64 Orbs, generated from the supplied 1.0.18 game tables. English names are reconciled with the local English research corpus.
 - `data/stage-data.js` contains 96 Expedition stages and 72 grouped Dungeon stages, including enemy references, levels, Fatigue, and recommended power where supplied by the game tables.
+- `data/combat-data.js` contains the 1.0.18 elemental matchup chart, stage enemy element mappings, and translated Raid boss hints and phase rules. Stage detail pages use this to suggest Dragons and moves with favorable elemental matchups. Raid topic pages include specific boss fight plans for the three bosses in this snapshot.
 - `guide-data.js`, `guide-extra.js`, `guide-more.js`, and `guide-reference.js` contain the question-led system/reference articles.
 - `strategy-data.js` contains beginner routes and practical guides for draws, Raids, stages, collection, and farming.
 - `tools/build-stage-data.py` regenerates the stage index when given the decoded 1.0.18 table directory and local English translation file with `--tables` and `--lang`. These local inputs are not included in the published site.
+- `tools/build-combat-data.py` regenerates combat and Raid reference data with `--tables` and `--lang`. These local inputs are not included in the published site.
 - `tools/translate-ability-descriptions.py` fills English ability descriptions in the static catalog using the local 1.0.18 tables and research translation files.
 - `app.js` builds navigation, filters, search, catalog detail pages, stage pages, and guide pages.
 
-Catalogs describe the 1.0.18 data snapshot. Live banners, shop stock, season rules, and event details can change; the relevant guides point players to the current in-game view or official notice. Tier-list recommendations are dated community snapshots, not game data.
+Catalogs and matchup recommendations describe the 1.0.18 data snapshot. Stage counter picks are suggested from enemy elements, Dragon moves, and base stats; they are an editorial shortlist, not a tested universal best team. Raid plans combine the boss’s own translated hint and phases with Dragon skills and abilities. Live banners, shop stock, season rules, and event details can change; the relevant guides point players to the current in-game view or official notice. Tier-list recommendations are dated community snapshots, not game data.
 
 ## Add guide information
 
